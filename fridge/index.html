@@ -1,0 +1,209 @@
+<html>
+  <head>
+    <title>Fridge App - Kyle Courounis</title>
+
+    <meta charset="utf-8">
+
+    <style>
+      body {
+        background-color: cornflowerblue;
+        color: white;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      }
+
+      .apps {
+        width: 380px;
+        margin: 0 auto;
+        margin-bottom: 680px;
+        border: none;
+        text-align: center;
+        transform: scale(1.5);
+      }
+
+      .apps td {
+        width: 75px;
+        font-size: 14px;
+        color: white;
+      }
+
+      #power-button, .app-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 9px;
+        cursor: pointer;
+      }
+
+      #container {
+        visibility: hidden;
+        margin: 0 auto;
+        text-align: center;
+        width: 95%;
+        height: 100%;
+      }
+
+      #time {
+        font-size: 30px;
+        padding: 15px;
+      }
+
+      #close-link {
+        visibility: hidden;
+        float: right;
+        border: 3px solid white;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        padding-bottom: 10px;
+        padding-left: 9px;
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+      }
+
+      #fridge-inside {
+        display: none;
+        width: 100%;
+        margin-top: -75px;
+      }
+
+      #wip {
+        display: none;
+        font-size: 25px;
+      }
+
+      .temperature {
+        background-color: whitesmoke;
+        color: black;
+        border-radius: 12px;
+        width: 25%;
+        padding: 5px;
+        margin: 0 auto;
+      }
+
+      #temperature {
+        width: 50px;
+        vertical-align: middle;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Kyle Courounis' Fridge</h1>
+
+    <a onclick="togglePower()"><img id="power-button" src="https://i0.wp.com/oneminutemacman.com/wp-content/uploads/2018/06/powerbutton.png?fit=545%2C545&ssl=1" /></a>
+    <a id="close-link" onclick="closeApp()">&times;</a>
+
+    <div id="container">
+      <div class="temperature"><img id="temperature" src="https://cdn-icons-png.flaticon.com/512/1247/1247791.png"> 38&#8457;</div>
+
+      <div id="time"></div>
+      <br>
+      <br>
+
+      <img id="fridge-inside" src="https://www.naturefresh.ca/wp-content/uploads/How-To-Organize-Your-Fridge-InsideFridge-terraskitchen.jpg" />
+      <div id="wip">Under Construction</div>
+
+      <table class="apps">
+        <tr>
+          <td>
+            <a onclick="openApp('seeInside')"><img class="app-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAqFBMVEX///8stMSAfn0mHxs/4N4wJyQsusselLEvKSYvPj74+Pgss8QuODodmbcwIh4oqr41bWtA5+Uvu8gfFRAvGhc5mpjNzMsnZnfp6egwNDIvaW9DSk8yRUIvwtArJCE7PD6/vr0aEAmMiYhB7+1JREK+vbwjGxc7PD1BOzlxbm1PS0iPjYw2MC0VCQAthpEtk58uWFwwFg0wDgAspLIudn8vSEqysK/b2tooVWxHAAACu0lEQVR4nO3d7VLaQBSAYTAuLhDT2rRptBABNY0SqB9V7v/OGqVUwzhtbE85y/I+/tJxmX3JuAO4k221AAAAAAAAAAAAAAAAAAC7qSdHO+U1vWkZyymnzkWmeW4l5XmqnbSmyKz5KMfYrNBOqruY2WjwSc4gsrML7aiaSW7M/pGcfWPziXZUzV5gBkf7co4GJtjTjqrZjcJhX87QxcJupy2n06Vw0yikkEJ9FFK4G4Xzb34Xdq5vbue/HsLLwmMTnVCoiEIKKdRHIYUU6qOQQgr1CRSG3hfOb6O75+88LGx32i8ewMvCei6FG0chhRTqo5DC7Sh8J8nFwvDwQM5hSOGmPRVKcrDQ2lCStQ4WGklOFkaSXCw8fi/p2L1CMzgT3EF75uLexB3YX3omWOjkNewOP8gZuviqrdsR3CPs5itv/99bUEghhboopJBCfRRS+FTl+/+A765P/C7s3Ec33/3ei+H/fhoKlVFIIYX6KKSQQn0UUrgThV3f3z217+6v+y96PSz0/1OMei2FG0chhRTqo5BCCvVRSCGF+iikkEJ9FFJIoT4KKaRQH4UUUqiPQgq3ojDs/3nijfUdvKfCTtwXw+vCSWCjA8EbfxxErp1oNZpZE36WExo7G2lH1Z0H1gjeFsPY4Fw7aU2axZng4YBZbF07HbDVmxb5WmTQ9DzHPFjLywv3Tnhcqhac8suStXHz4/0uYmt/jitt4NYSU1crHI8ajxuNt6Vwmq9meloVJo3HJVXh6eqZyaf/cYb/Jk0fqpmWX0+rr+rPabZIm1rMqt9/GldWz8xD6twqs5RUiue1Jr9Mmrt8Pqc1Kx5/oB3zmt7jxEZZsFoPr94QmCRXq3U4yEauFrYWy6tRxuPxOC4mbwpMkknxOG5sl1d+oR3zW397KLOzhzkDAAAAAAAAAAAAAAAAADbnB7S+1Yheigg1AAAAAElFTkSuQmCC"></a>
+            <br>
+            See Inside
+          </td>
+
+          <td>
+            <a onclick="openApp('browser')"><img class="app-icon" src="https://icons.iconarchive.com/icons/bokehlicia/pacifica/256/browser-google-chrome-icon.png"></a>
+            <br>
+            Google Chrome
+          </td>
+
+          <td>
+            <a onclick="openApp('tv')"><img class="app-icon" src="https://static.wikia.nocookie.net/logopedia/images/2/25/Youtubeicon.jpg/revision/latest?cb=20181127033652"></a>
+            <br>
+            Watch TV
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <script type="text/javascript">
+      function init() {
+        getTime();
+      }
+
+      init();
+
+      function togglePower() {
+        var powerBtnStyle = getElement("power-button").style;
+        var containerStyle = getElement("container").style;
+
+        if (containerStyle.visibility === "" || containerStyle.visibility === "hidden") {
+          powerBtnStyle.filter = "invert(1)";
+          containerStyle.visibility = "visible"; // Show apps
+          containerStyle.display = "block";
+        } else {
+          closeApp();
+          powerBtnStyle.filter = "";
+          containerStyle.visibility = "hidden"; 
+          containerStyle.display = "none";
+        }
+      }
+
+      function openApp(name) {
+        getElement("close-link").style.visibility = "visible";
+
+        if (name === "seeInside") {
+          seeInside();
+        }
+        
+        if (name === "browser") {
+          workInProgress();
+        }
+
+        if (name === "tv") {
+          workInProgress();
+        }
+      }
+
+      function workInProgress() {
+        document.querySelector(".apps").style.visibility = "hidden";
+        getElement("time").style.visibility = "hidden";
+
+        getElement("wip").style.display = "block";
+      }
+
+      function seeInside() {
+        getElement("fridge-inside").style.display = "block";
+
+        document.querySelector(".apps").style.visibility = "hidden";
+        getElement("time").style.visibility = "hidden";
+      }
+
+      function closeApp() {
+        getElement("fridge-inside").style.display = "none";
+
+        document.querySelector(".apps").style.visibility = "visible";
+        getElement("time").style.visibility = "visible";
+        getElement("close-link").style.visibility = "hidden";
+        getElement("wip").style.display = "none";
+      }
+
+      function getTime() {
+        var now = new Date();
+
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+
+        var mins = (minutes < 10) ? "0" + minutes : minutes;
+        var secs = (seconds < 10) ? "0" + seconds : seconds;
+
+        document.getElementById("time").innerHTML = `${now.getHours()}:${mins}:${secs}`;
+
+        setTimeout(getTime, 1000);
+      }
+
+      function getElement(id) {
+        return document.getElementById(id);
+      }
+    </script>
+  </body>
+</html>
