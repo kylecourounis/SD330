@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!--
+  My Design Principles Document
+  Author: Kyle Courounis
+  Date: 1/23/2023
+-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Kyle's Design Principles</title>
+
+    <style>
+      body {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        color: white;
+        background-color: #005eff;
+      }
+      
+      ul {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+      }
+
+      span {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Kyle's Design Principles</h1>
+    <hr>
+
+    Click the arrows to expand each category.
+
+    <h2>Key Principles <span id="expand-key-principles" onclick="expandUL('key-principles')">&#x25B6;</span></h2> 
+    <ul id="key-principles">
+      <li>Visibility - of functions, instructions, etc</li>
+      <li>Consistentcy</li>
+      <li>Feedback</li>
+      <li>Constraints</li>
+      <li>Affordance - "to give a clue" - an attribute of an object that allows people to know how to use it.</li> 
+      <li>Accessibility</li>
+    </ul>
+
+    <h2>Usability Goals <span id="expand-usability-goals" onclick="expandUL('usability-goals')">&#x25B6;</span></h2> 
+    <ul id="usability-goals">
+      <li>Effectiveness</li>
+      <li>Efficiency</li>
+      <li>Safety</li>
+      <li>Utility</li>
+      <li>Learnability</li>
+      <li>Memorability</li>
+      <li>Asthetically-pleasing design is often interpreted as being more user-friendly</li>
+    </ul>
+
+    <h2>Complexity Considerations <span id="expand-complexity-considerations" onclick="expandUL('complexity-considerations')">&#x25B6;</span></h2> 
+    <ul id="complexity-considerations">
+      <li>Easy as email</li>
+      <li>Allow users to learn by doing</li>
+      <li>Use icons, but be clear about what they mean</li>
+      <li>Don't make the user think</li>
+      <li>Break complex tasks into smaller steps</li>
+      <li>Be careful not to simplify to the point of abstraction</li>
+      <li>Avoid overwhelming users by highlighting recommended options</li>
+      <li>Minimize choices, especially when response times are critical</li>
+    </ul>
+
+    <h2>Cultural Considerations <span id="expand-cultural-considerations" onclick="expandUL('cultural-considerations')">&#x25B6;</span></h2> 
+    <ul id="cultural-considerations">
+      <li>Make sure not to include offensive symbols/icons</li>
+      <li>Design for your target market (gender, race, etc.)</li>
+    </ul>
+
+    <h2>Conceptual Models <span id="expand-conceptual-models" onclick="expandUL('conceptual-models')">&#x25B6;</span></h2>
+    <ul id="conceptual-models">
+      <li>Design the conceptual model purposely--don't let it arise from the technology</li>
+      <li>Be wary of poor or erroneous model</li>
+      <li>Make sure the mental model and the conceptual model match</li>
+      <li>Metaphors need to have afoordances and constraints</li>
+    </ul>
+
+    <h2>Jakob's Law <span id="expand-jakobs-law" onclick="expandUL('jakobs-law')">&#x25B6;</span></h2>
+    <ul id="jakobs-law">
+      <li>Users spend most of their time on other sites. This means that users prefer your site to work the same way as all the other sites they already know</li>
+      <li>When we want to make hanges, minimize discord by empowering users to continue using a previous version</li>
+      <li>Legacy problem - too many devices use the existing standard.</li>
+    </ul>
+
+    <h2>Human-Centered Design Principles <span id="expand-human-centered-design-principles" onclick="expandUL('human-centered-design-principles')">&#x25B6;</span></h2> 
+    <ul id="human-centered-design-principles">
+      <li>Provide discoverability</li>
+      <li>Provide feedback</li>
+      <li>Utilize a conceptual model</li>
+      <li>Include affordances, signifiers, constraints</li>
+      <li>Ensure you have good mappings - the relationship between controls and their actions</li>
+    </ul>
+
+    <h2>Emotional/Accessibility Principles <span id="expand-emotional-principles" onclick="expandUL('emotional-principles')">&#x25B6;</span></h2> 
+    <ul id="emotional-principles">
+      <li>Clear instructions</li>
+      <li>Poll differently abled people</li>
+      <li>Add features that will help people depending on issue</li>
+    </ul>
+
+    <h2>Smartphone Principles <span id="expand-smartphone-principles" onclick="expandUL('smartphone-principles')">&#x25B6;</span></h2>
+    <ul id="smartphone-principles">
+      <li>Make items large enough to tap with a finger</li>
+      <li>Make your page fit within the viewport of a phone</li>
+      <li>Make it intuitive to use with a touch screen (minimal or no hovering)</li>
+      <li>Scale the page to be visible</li>
+      <li>Organize the screen for viewing and interacting with on a small screen</li>
+    </ul>
+
+    <h2>Hick's Law <span id="expand-hicks-law" onclick="expandUL('hicks-law')">&#x25B6;</span></h2>
+    <ul id="hicks-law">
+      <li>The time it takes to make a decision increases with the number and complexity of choices available</li>
+      <li>RT = a + b log2 (n)</li>
+      <ol>
+        <li>RT = reaction time</li>
+        <li>n is the number of stimuli</li>
+        <li>a and b are constants</li>
+      </ol>
+    </ul>
+
+    <hr>
+
+    <footer>
+      <small>&copy; Kyle Courounis - 3/20/2023</small>
+    </footer>
+
+    <script type="text/javascript">
+      function expandUL(id) {
+        var list = document.getElementById(id);
+      
+        if (parseInt(list.style.maxHeight) > 0) {
+          list.style.maxHeight = "0";
+          document.getElementById("expand-" + id).innerHTML = "&#x25B6;";
+        } else {
+          list.style.maxHeight = list.scrollHeight + "px";
+          document.getElementById("expand-" + id).innerHTML = "&#x25BC;";
+        }
+      }
+    </script>
+
+  </body>
+
+</html>
