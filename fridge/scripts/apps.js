@@ -1,6 +1,6 @@
 
 function seeInside() {
-  getElement("fridge-inside").style.display = "block";
+  getElement("fridge-inside").style.display = "inline-block";
 
   hideAll();
 }
@@ -65,17 +65,17 @@ function shoppingList() {
 }
 
 function hideAll() {
-  document.querySelector(".temperature").style.display = "none";
+  //document.querySelector(".temperature").style.display = "none";
+  //getElement("time").style.visibility = "hidden";
   document.querySelector(".apps").style.visibility = "hidden";
-  getElement("time").style.visibility = "hidden";
 }
 
 function closeApp() {
   getElement("fridge-inside").style.display = "none";
 
-  document.querySelector(".temperature").style.display = "block";
+  //document.querySelector(".temperature").style.display = "block";
+  //getElement("time").style.visibility = "visible";
   document.querySelector(".apps").style.visibility = "visible";
-  getElement("time").style.visibility = "visible";
   getElement("close-link").style.visibility = "hidden";
   getElement("browser").style.display = "none";
   getElement("spotify").style.display = "none";

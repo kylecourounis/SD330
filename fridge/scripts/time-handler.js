@@ -12,7 +12,7 @@ function getTime() {
     var mins = (minutes < 10) ? "0" + minutes : minutes;
     var secs = (seconds < 10) ? "0" + seconds : seconds;
   
-    document.getElementById("time").innerHTML = `${hrs}:${mins}:${secs} ${hrs >= 12 ? "PM" : "AM"}`;
+    document.getElementById("time").innerHTML = `${hrs}:${mins}:${secs} ${hours >= 12 ? "PM" : "AM"}`;
   
     setTimeout(getTime, 1000);
   } else if (timeType == 24) {
