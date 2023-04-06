@@ -43,6 +43,10 @@ body {
   cursor: pointer;
 }
 
+#timer-elapsed {
+  font-size: 30px;
+}
+
 #close-link {
   visibility: hidden;
   float: right;

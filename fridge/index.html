@@ -28,7 +28,11 @@
       <div id="browser"><img src="assets/images/google-screenshot.png" width="650px"/></div>
 
       <div id="youtube">
-        <iframe width="1000" height="500" src="https://www.youtube.com/embed/oi707TKSmrk" title="Billy Joel - Summer, Highland Falls 3/26/23 MSG Live" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>  
+        <iframe id="youtube-vid-iframe" width="1000" height="500" src="" title="Billy Joel - Summer, Highland Falls 3/26/23 MSG Live" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>  
+      </div>
+
+      <div id="timer">
+        <span id="timer-elapsed"></span>
       </div>
 
       <div id="spotify">
@@ -116,6 +120,12 @@
             <a onclick="openApp('shopping-list')"><img class="app-icon" src="assets/images/shopping-list.webp"></a>
             <br>
             Shopping List
+          </td>
+
+          <td>
+            <a onclick="openApp('timer')"><img class="app-icon" src="assets/images/timer.png"></a>
+            <br>
+            Timer
           </td>
         </tr>
       </table>

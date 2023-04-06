@@ -35,3 +35,46 @@ function convertTime() {
     timeType = 12;
   }
 }
+
+class Timer {
+  constructor () {
+    this.isRunning = false;
+    this.time = 60000;
+  }
+
+  _getTimeElapsedSinceLastStart () {
+    if (!this.time) {
+      return 0;
+    }
+  
+    return Date.now() - this.time;
+  }
+
+  start () {
+    if (this.isRunning) {
+      return console.error('Timer is already running');
+    }
+
+    this.isRunning = true;
+
+    this.interval = setInterval(() => {
+      if (this.time > 0) {
+        this.time -= 100;
+      }
+    }, 100);
+  }
+
+  stop () {
+    this.isRunning = false;
+    clearInterval(this.interval);
+    this.reset();
+  }
+
+  reset () {
+    this.time = 60000;
+  }
+
+  getTime () {
+    return this.time;
+  }
+}
