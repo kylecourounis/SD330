@@ -36,45 +36,87 @@ function convertTime() {
   }
 }
 
-class Timer {
-  constructor () {
-    this.isRunning = false;
-    this.time = 60000;
-  }
+var duration = 0;
 
-  _getTimeElapsedSinceLastStart () {
-    if (!this.time) {
-      return 0;
-    }
+function increaseTimer() {
+  duration += 60;
   
-    return Date.now() - this.time;
+  var start = Date.now(),
+  diff,
+  minutes,
+  seconds;
+
+  // get the number of seconds that have elapsed since 
+  // startTimer() was called
+  diff = duration - (((Date.now() - start) / 1000) | 0);
+
+  // does the same job as parseInt truncates the float
+  minutes = (diff / 60) | 0;
+  seconds = (diff % 60) | 0;
+
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+
+  getElement("timer-elapsed").textContent = minutes + ":" + seconds; 
+}
+
+function decreaseTimer() {
+  if (duration > 0) {
+    duration -= 60;
+
+    var start = Date.now(),
+        diff,
+        minutes,
+        seconds;
+  
+    // get the number of seconds that have elapsed since 
+    // startTimer() was called
+    diff = duration - (((Date.now() - start) / 1000) | 0);
+  
+    // does the same job as parseInt truncates the float
+    minutes = (diff / 60) | 0;
+    seconds = (diff % 60) | 0;
+  
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+  
+    getElement("timer-elapsed").textContent = minutes + ":" + seconds; 
   }
+}
 
-  start () {
-    if (this.isRunning) {
-      return console.error('Timer is already running');
-    }
+var timerIntervalId = 0;
 
-    this.isRunning = true;
+function startTimer() {
+  var start = Date.now(),
+      diff,
+      minutes,
+      seconds;
+  function timer() {
+      // get the number of seconds that have elapsed since 
+      // startTimer() was called
+      diff = duration - (((Date.now() - start) / 1000) | 0);
 
-    this.interval = setInterval(() => {
-      if (this.time > 0) {
-        this.time -= 100;
+      // does the same job as parseInt truncates the float
+      minutes = (diff / 60) | 0;
+      seconds = (diff % 60) | 0;
+
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+
+      getElement("timer-elapsed").textContent = minutes + ":" + seconds; 
+
+      if (diff <= 0) {
+          // add one second so that the count down starts at the full duration
+          // example 05:00 not 04:59
+          start = Date.now() + 1000;
       }
-    }, 100);
-  }
 
-  stop () {
-    this.isRunning = false;
-    clearInterval(this.interval);
-    this.reset();
-  }
-
-  reset () {
-    this.time = 60000;
-  }
-
-  getTime () {
-    return this.time;
-  }
+      if (minutes == 0 && seconds == 0) {
+        var audio = new Audio("assets/sounds/ding.mp3");
+        audio.play();
+      }
+  };
+  // we don't want to wait a full second before the timer starts
+  timer();
+  timerIntervalId = setInterval(timer, 1000);
 }

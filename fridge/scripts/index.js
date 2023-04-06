@@ -51,9 +51,9 @@ function openApp(name) {
   if (name === "shopping-list") {
     shoppingList();
   }
-  
+
   if (name === "timer") {
-    startTimer();
+    timerApp();
   }
 }
 

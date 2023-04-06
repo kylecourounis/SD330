@@ -69,6 +69,10 @@ body {
   margin-left: 150px;
 }
 
+#timer {
+  display: none;
+}
+
 #spotify {
   display: none;
 }
