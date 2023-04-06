@@ -1,0 +1,98 @@
+body {
+  background-color: cornflowerblue;
+  color: white;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#container {
+  visibility: hidden;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 10px;
+  padding: 15px;
+  width: 90%;
+  height: 70%;
+  border: 2px black solid;
+}
+
+.apps {
+  width: 380px;
+  margin: 0 auto;
+  margin-bottom: 680px;
+  border: none;
+  text-align: center;
+  transform: scale(1.5);
+}
+
+.apps td {
+  width: 75px;
+  font-size: 14px;
+  color: white;
+}
+
+#power-button, .app-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+#time {
+  font-size: 30px;
+  padding: 15px;
+  cursor: pointer;
+}
+
+#close-link {
+  visibility: hidden;
+  float: right;
+  border: 3px solid white;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 4px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+#fridge-inside {
+  display: none;
+  width: 550px;
+  margin-top: -75px;
+  margin-left: 150px;
+}
+
+#spotify {
+  display: none;
+}
+
+#youtube {
+  display: none;
+}
+
+#browser {
+  display: none;
+  font-size: 25px;
+}
+
+#player {
+  vertical-align: middle;
+}
+
+.temperature {
+  background-color: whitesmoke;
+  color: black;
+  border-radius: 12px;
+  width: 25%;
+  padding: 5px;
+  margin: 0 auto;
+}
+
+#temperature {
+  width: 50px;
+  vertical-align: middle;
+  cursor: pointer;
+}

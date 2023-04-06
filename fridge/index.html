@@ -4,103 +4,80 @@
 
     <meta charset="utf-8">
 
-    <style>
-      body {
-        background-color: cornflowerblue;
-        color: white;
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-      }
-
-      .apps {
-        width: 380px;
-        margin: 0 auto;
-        margin-bottom: 680px;
-        border: none;
-        text-align: center;
-        transform: scale(1.5);
-      }
-
-      .apps td {
-        width: 75px;
-        font-size: 14px;
-        color: white;
-      }
-
-      #power-button, .app-icon {
-        width: 60px;
-        height: 60px;
-        border-radius: 9px;
-        cursor: pointer;
-      }
-
-      #container {
-        visibility: hidden;
-        margin: 0 auto;
-        text-align: center;
-        width: 95%;
-        height: 100%;
-      }
-
-      #time {
-        font-size: 30px;
-        padding: 15px;
-      }
-
-      #close-link {
-        visibility: hidden;
-        float: right;
-        border: 3px solid white;
-        border-radius: 50%;
-        width: 25px;
-        height: 25px;
-        padding-bottom: 10px;
-        padding-left: 9px;
-        font-size: 30px;
-        color: white;
-        cursor: pointer;
-      }
-
-      #fridge-inside {
-        display: none;
-        width: 100%;
-        margin-top: -75px;
-      }
-
-      #wip {
-        display: none;
-        font-size: 25px;
-      }
-
-      .temperature {
-        background-color: whitesmoke;
-        color: black;
-        border-radius: 12px;
-        width: 25%;
-        padding: 5px;
-        margin: 0 auto;
-      }
-
-      #temperature {
-        width: 50px;
-        vertical-align: middle;
-      }
-    </style>
+    <link rel="stylesheet" href="assets/styles.css">
   </head>
   <body>
-    <h1>Kyle Courounis' Fridge</h1>
+    <h1>Freezee</h1>
 
     <a onclick="togglePower()"><img id="power-button" src="https://i0.wp.com/oneminutemacman.com/wp-content/uploads/2018/06/powerbutton.png?fit=545%2C545&ssl=1" /></a>
-    <a id="close-link" onclick="closeApp()">&times;</a>
-
+    
     <div id="container">
-      <div class="temperature"><img id="temperature" src="https://cdn-icons-png.flaticon.com/512/1247/1247791.png"> 38&#8457;</div>
+      <a id="close-link" onclick="closeApp()">&times;</a>
 
-      <div id="time"></div>
+      <div class="temperature">
+        <button onclick="decreaseTemp()">-</button>
+        <img onclick="convertTemperature()" id="temperature" src="https://cdn-icons-png.flaticon.com/512/1247/1247791.png"> <span id="temperature-value"></span> <span id="temperature-type">&#8457;</span>
+        <button onclick="increaseTemp()">+</button>
+      </div>
+
+      <div id="time" onclick="convertTime()"></div>
       <br>
       <br>
 
       <img id="fridge-inside" src="https://www.naturefresh.ca/wp-content/uploads/How-To-Organize-Your-Fridge-InsideFridge-terraskitchen.jpg" />
-      <div id="wip">Under Construction</div>
+      <div id="browser"><img src="assets/images/google-screenshot.png" width="650px"/></div>
+
+      <div id="youtube">
+        <iframe width="1000" height="500" src="https://www.youtube.com/embed/oi707TKSmrk" title="Billy Joel - Summer, Highland Falls 3/26/23 MSG Live" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>  
+      </div>
+
+      <div id="spotify">
+        <ul style="list-style-type: none;">
+          <li id="song">
+            Kitty's Back - Bruce Springsteen (Live in Philadelphia - 3/16/2023)
+            <audio id="player" controls>
+              <source src="assets/sounds/kittys-back.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </li>
+          <br>
+          <li id="song">
+            Ghosts - Bruce Springsteen (Live in Philadelphia - 3/16/2023)
+            <audio id="player" controls>
+              <source src="assets/sounds/ghosts.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </li>
+
+          <br>
+          <li id="song">
+            Trapped - Bruce Springsteen (Live in Philadelphia - 3/16/2023)
+            <audio id="player" controls>
+              <source src="assets/sounds/trapped.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </li>
+
+          <br>
+          <li id="song">
+            The Promised Land - Bruce Springsteen (Live in Philadelphia - 3/16/2023)
+            <audio id="player" controls>
+              <source src="assets/sounds/promised-land.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </li>
+
+          <br>
+          <li id="song">
+            Thunder Road - Bruce Springsteen (Live in Philadelphia - 3/16/2023)
+            <audio id="player" controls>
+              <source src="assets/sounds/thunder-road.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </li>
+        </ul>
+        
+      </div>
 
       <table class="apps">
         <tr>
@@ -117,93 +94,37 @@
           </td>
 
           <td>
-            <a onclick="openApp('tv')"><img class="app-icon" src="https://static.wikia.nocookie.net/logopedia/images/2/25/Youtubeicon.jpg/revision/latest?cb=20181127033652"></a>
+            <a onclick="openApp('youtube')"><img class="app-icon" src="assets/images/youtube.png"></a>
             <br>
-            Watch TV
+            YouTube
+          </td>
+
+          <td>
+            <a onclick="openApp('spotify')"><img class="app-icon" src="assets/images/spotify.jpg"></a>
+            <br>
+            Spotify
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a onclick="openApp('weather')"><img class="app-icon" src="assets/images/weather.png"></a>
+            <br>
+            Weather
+          </td>
+
+          <td>
+            <a onclick="openApp('shopping-list')"><img class="app-icon" src="assets/images/shopping-list.webp"></a>
+            <br>
+            Shopping List
           </td>
         </tr>
       </table>
     </div>
 
-    <script type="text/javascript">
-      function init() {
-        getTime();
-      }
-
-      init();
-
-      function togglePower() {
-        var powerBtnStyle = getElement("power-button").style;
-        var containerStyle = getElement("container").style;
-
-        if (containerStyle.visibility === "" || containerStyle.visibility === "hidden") {
-          powerBtnStyle.filter = "invert(1)";
-          containerStyle.visibility = "visible"; // Show apps
-          containerStyle.display = "block";
-        } else {
-          closeApp();
-          powerBtnStyle.filter = "";
-          containerStyle.visibility = "hidden"; 
-          containerStyle.display = "none";
-        }
-      }
-
-      function openApp(name) {
-        getElement("close-link").style.visibility = "visible";
-
-        if (name === "seeInside") {
-          seeInside();
-        }
-        
-        if (name === "browser") {
-          workInProgress();
-        }
-
-        if (name === "tv") {
-          workInProgress();
-        }
-      }
-
-      function workInProgress() {
-        document.querySelector(".apps").style.visibility = "hidden";
-        getElement("time").style.visibility = "hidden";
-
-        getElement("wip").style.display = "block";
-      }
-
-      function seeInside() {
-        getElement("fridge-inside").style.display = "block";
-
-        document.querySelector(".apps").style.visibility = "hidden";
-        getElement("time").style.visibility = "hidden";
-      }
-
-      function closeApp() {
-        getElement("fridge-inside").style.display = "none";
-
-        document.querySelector(".apps").style.visibility = "visible";
-        getElement("time").style.visibility = "visible";
-        getElement("close-link").style.visibility = "hidden";
-        getElement("wip").style.display = "none";
-      }
-
-      function getTime() {
-        var now = new Date();
-
-        var minutes = now.getMinutes();
-        var seconds = now.getSeconds();
-
-        var mins = (minutes < 10) ? "0" + minutes : minutes;
-        var secs = (seconds < 10) ? "0" + seconds : seconds;
-
-        document.getElementById("time").innerHTML = `${now.getHours()}:${mins}:${secs}`;
-
-        setTimeout(getTime, 1000);
-      }
-
-      function getElement(id) {
-        return document.getElementById(id);
-      }
-    </script>
+    <script type="text/javascript" src="scripts/time-handler.js"></script>
+    <script type="text/javascript" src="scripts/temp-handler.js"></script>
+    <script type="text/javascript" src="scripts/weather-handler.js"></script>
+    <script type="text/javascript" src="scripts/apps.js"></script>
+    <script type="text/javascript" src="scripts/index.js"></script>
   </body>
 </html>
