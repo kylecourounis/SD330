@@ -43,6 +43,7 @@ function closeApp() {
   getElement("close-link").style.visibility = "hidden";
   getElement("browser").style.display = "none";
   getElement("spotify").style.display = "none";
+  getElement("youtube").style.display = "none";
   
   document.querySelectorAll("#player").forEach(value => {
     value.pause();
