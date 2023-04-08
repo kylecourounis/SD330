@@ -1,10 +1,9 @@
 var layers = [];
+var currentTemperatureOutside = 0;
 
 function init() {
   getTime();
   generateTemperature();
-
-  console.log(getCurrentTempOutside());
 }
 
 init();

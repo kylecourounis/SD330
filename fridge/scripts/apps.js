@@ -40,6 +40,14 @@ function workInProgress() {
   getElement("wip").style.display = "block";
 }
 
+async function weather() {
+  hideAll();
+
+  currentTemperatureOutside = await getTemperature();
+
+  getElement("weather").style.display = "block";
+  getElement("weather").innerHTML = "Current Temperature Outside: " + currentTemperatureOutside + " &#8457;";
+}
 
 
 function stopTimer() {
@@ -48,6 +56,8 @@ function stopTimer() {
 
 function shoppingList() {
   hideAll();
+
+  getElement("shopping-list").style.display = "block";
 }
 
 function hideAll() {
@@ -70,6 +80,10 @@ function closeApp() {
   getElement("youtube").style.display = "none";
   getElement("youtube-vid-iframe").src = "";
 
+  getElement("weather").style.display = "none";
+
+  getElement("shopping-list").style.display = "none";
+  
   stopTimer();
   
   document.querySelectorAll("#player").forEach(value => {

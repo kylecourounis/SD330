@@ -31,6 +31,24 @@
         <iframe id="youtube-vid-iframe" width="850" height="450" src="" title="Billy Joel - Summer, Highland Falls 3/26/23 MSG Live" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>  
       </div>
 
+      <div id="weather"></div>
+
+      <div id="shopping-list">
+        <div class="header">
+          <h2>Shopping List</h2>
+          <input type="text" id="input-item" placeholder="Item...">
+          <span onclick="newElement()" class="add-button">Add</span>
+        </div>
+        
+        <ul id="shopping-list-items">
+          <li id="shopping-list-item" class="checked">Eggs</li>
+          <li id="shopping-list-item">Bananas</li>
+          <li id="shopping-list-item">Apples</li>
+          <li id="shopping-list-item">Cake</li>
+          <li id="shopping-list-item">Cookies</li>
+        </ul>
+      </div>
+
       <div id="timer">
         <span id="timer-elapsed">00:00</span>
 
@@ -138,6 +156,7 @@
     </div>
 
     <script type="text/javascript" src="scripts/time-handler.js"></script>
+    <script type="text/javascript" src="scripts/shopping-list.js"></script>
     <script type="text/javascript" src="scripts/temp-handler.js"></script>
     <script type="text/javascript" src="scripts/weather-handler.js"></script>
     <script type="text/javascript" src="scripts/apps.js"></script>
