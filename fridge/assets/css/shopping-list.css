@@ -15,8 +15,8 @@
 #shopping-list-items li {
   cursor: pointer;
   position: relative;
+  text-align: left;
   padding: 12px 8px 12px 40px;
-  background: #eee;
   font-size: 18px;
   transition: 0.2s;
 
@@ -27,19 +27,8 @@
   user-select: none;
 }
 
-/* Set all odd list items to a different color (zebra-stripes) */
-#shopping-list-items li:nth-child(odd) {
-  background: #f9f9f9;
-}
-
-/* Darker background-color on hover */
-#shopping-list-items li:hover {
-  background: #ddd;
-}
-
 /* When clicked on, add a background color and strike out text */
 #shopping-list-items li.checked {
-  background: #888;
   color: #fff;
   text-decoration: line-through;
 }
@@ -64,16 +53,16 @@
   right: 0;
   top: 0;
   padding: 12px 16px 12px 16px;
+  border-radius: 50%;
 }
 
 .close:hover {
-  background-color: #f44336;
+  background-color: #898989;
   color: white;
 }
 
 /* Style the header */
 .header {
-  background-color: #95c3ff;
   padding: 30px 40px;
   color: white;
   text-align: center;
@@ -101,8 +90,8 @@
 .add-button {
   padding: 10px;
   width: 25%;
-  background: #d9d9d9;
-  color: #555;
+  background: #9e9e9e;
+  color: white;
   float: left;
   text-align: center;
   font-size: 16px;
@@ -112,5 +101,5 @@
 }
 
 .add-button:hover {
-  background-color: #bbb;
+  background-color: #737373;
 }

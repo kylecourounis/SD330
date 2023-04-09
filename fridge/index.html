@@ -53,8 +53,15 @@
         <span id="timer-elapsed">00:00</span>
 
         <br>
-        <button onclick="decreaseTimer()">-</button>
-        <button onclick="increaseTimer()">+</button>
+        <br>
+        Increase Minutes:
+        <button class="timer-incdec" onclick="decreaseTimer(60)">-</button>
+        <button class="timer-incdec" onclick="increaseTimer(60)">+</button>
+        <br>
+        Increase Seconds:
+        <button class="timer-incdec" onclick="decreaseTimer(1)">-</button>
+        <button class="timer-incdec" onclick="increaseTimer(1)">+</button>
+        <br>
         <br>
         <button id="timer-start" onclick="startTimer()">Start</button>
       </div>

@@ -38,8 +38,8 @@ function convertTime() {
 
 var duration = 0;
 
-function increaseTimer() {
-  duration += 60;
+function increaseTimer(secs) {
+  duration += secs;
   
   var start = Date.now(),
   diff,
@@ -60,9 +60,9 @@ function increaseTimer() {
   getElement("timer-elapsed").textContent = minutes + ":" + seconds; 
 }
 
-function decreaseTimer() {
-  if (duration > 0) {
-    duration -= 60;
+function decreaseTimer(secs) {
+  if (duration > 0 && secs > 0) {
+    duration -= secs;
 
     var start = Date.now(),
         diff,
@@ -112,6 +112,8 @@ function startTimer() {
       }
 
       if (minutes == 0 && seconds == 0) {
+        clearInterval(timerIntervalId);
+
         var audio = new Audio("assets/sounds/ding.mp3");
         audio.play();
       }
