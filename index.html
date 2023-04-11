@@ -1,23 +1,69 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Kyle Courounis - SD330</title>  
-  </head>
-  <body>
-    <header>
-      <h1>Kyle Courounis - System Design</h1>
-      <hr>
-    </header>
+    <meta charset="UTF-8">
+    <title>Kyle Courounis' SD330 Files</title>
 
-    <ul>
-      <li><a href="design-principles.html">Design Principles</a></li>
-      <li><a href="fridge">Fridge App</a></li>
-    </ul>
+    <style>
+      body {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        background-image: url('background.png');
+        background-repeat: no-repeat;
+        background-size: 100% 500%;
+        color: white;
+      }
+
+      a {
+        text-decoration: underline;
+        color: white;
+      }
+
+      img {
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body onload="fileList()">
+    <div style="display: flex;">
+        <img src="https://pbs.twimg.com/profile_images/951223527734050816/93kGlO45_400x400.jpg" width="150" height="150">
+        &nbsp; &nbsp;
+        <h1 style ="color:#ffffff; vertical-align: middle;">Kyle Courounis' SD330 Files</h1>    
+    </div>
+    <br>
+
+    <p>All the files/folders in my SD330 are listed here:</p>
+
+    <hr>
+
+    <p id="files">
+    </p>
+
+    <script type="text/javascript">
+        function fileList(){ 
+            (async () => {
+                const response = await fetch("https://api.github.com/repos/kylecourounis/SD330/contents");
+                const data = await response.json();
+
+                let htmlString = "";
+
+                htmlString += "<ul>";
+                for (let file of data) {
+                    name = file.name;
+                    path = "https://kylecourounis.github.io/SD330/" + name;
+
+                    htmlString += "<li><a href=" + "'" + path + "'" + ">" + name + "</a></li>" ;
+                }
+                htmlString += "</ul></div>";
+
+                document.getElementById("files").innerHTML = htmlString;
+            })();
+        }
+    </script>
+
+    <hr>
 
     <footer>
-      <hr>
-      <small>
-        &copy; Kyle Courounis, March 20th, 2023
-      </small>
+      <small>&copy; Kyle Courounis 4/11/2023</small>
     </footer> 
   </body>
 </html>
