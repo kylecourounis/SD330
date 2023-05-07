@@ -1,0 +1,57 @@
+{
+    "courses": {
+
+        "CMPT422" :{
+            "id": "CMPT422",
+            "title": "Computer Organization & Architecture",
+            "semester": "Spring 2023",
+            "professor": "Brian Gormanly",
+            "books": [
+              {
+                  "isbn": "",
+                  "title": "",
+                  "author": ""
+              }
+            ]
+        },
+        "CMPT308" :{
+            "id": "CMPT308",
+            "title": "Database Management",
+            "semester": "Spring 2023",
+            "professor": "Thomas McKee",
+            "books": [
+              {
+                  "isbn": "",
+                  "title": "",
+                  "author": ""
+              }
+            ]
+        },
+        "CMPT435" :{
+            "id": "CMPT435",
+            "title": "Algorithm Analysis & Design",
+            "semester": "Spring 2023",
+            "professor": "Matthew Johnson",
+            "books": [
+              {
+                  "isbn": "",
+                  "title": "Introduction to Algorithms 3rd Edition",
+                  "author": "Thomas H. Cormen"
+              }
+            ]
+        },
+        "CMPT330" :{
+            "id": "CMPT330",
+            "title": "System Design",
+            "semester": "Spring 2023",
+            "professor": "Andrew Tokash",
+            "books": [
+              {
+                  "isbn": "1119547253",
+                  "title": "Interaction Design 5th Edition",
+                  "author": "Helen Sharp"
+              }
+            ]
+        }
+    }
+}
