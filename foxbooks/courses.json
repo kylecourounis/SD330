@@ -7,9 +7,9 @@
             "professor": "Brian Gormanly",
             "books": [
               {
-                  "isbn": "",
-                  "title": "",
-                  "author": ""
+                  "isbn": "0128017333",
+                  "title": "Computer Organization and Design, ARM Edition",
+                  "author": "Hennessy Patterson"
               }
             ]
         },
@@ -20,9 +20,9 @@
             "professor": "Thomas McKee",
             "books": [
               {
-                  "isbn": "",
-                  "title": "",
-                  "author": ""
+                  "isbn": "9780137305940",
+                  "title": "Modern Database Management, 13th edition",
+                  "author": "Jeff Hoffer"
               }
             ]
         },
