@@ -1,6 +1,5 @@
 {
     "courses": {
-
         "CMPT422" :{
             "id": "CMPT422",
             "title": "Computer Organization & Architecture",
@@ -34,7 +33,7 @@
             "professor": "Matthew Johnson",
             "books": [
               {
-                  "isbn": "",
+                  "isbn": "9780262033848",
                   "title": "Introduction to Algorithms 3rd Edition",
                   "author": "Thomas H. Cormen"
               }

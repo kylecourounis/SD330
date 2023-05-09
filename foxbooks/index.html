@@ -7,12 +7,22 @@
   </head>
   <body>
     <div class="header">
-      <a href="index.html">
+      <div class="banner" onclick="window.location = 'index.html'">
         <img class="header-icon" src="assets/images/marist-icon.png" width="50px" height="50px">
-      </a>
-      <h1>FoxBooks</h1>
+        <h1>FoxBooks</h1>
+      </div>
       
       <input id="search-box" type="text" placeholder="Search...">
+      
+      <div class="header-links">
+        <a href="index.html" class="header-link">Home</a>
+        &nbsp; &nbsp;
+        <a href="courses.html" class="header-link">Courses</a>
+        &nbsp; &nbsp;
+        <a href="#" class="header-link">My Account</a>
+        &nbsp; &nbsp;
+        <a href="#" class="header-link">Contact Us</a>
+      </div>
     </div>
     <hr>
     <div id="content">
@@ -21,9 +31,10 @@
             <li class="crumb">Home</li>
         </ol>
       </nav>
-      <h1>Home</h1>
+      <h1>Welcome to FoxBooks!</h1>
+      <a href="courses.html">Click here to see available courses.</a>
       <br>
-      <a href="courses.html">See courses.</a>
+      <img src="assets/images/textbooks.jpeg" width="100%">
       <br>
       <br>
     </div>

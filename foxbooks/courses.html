@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Courses - FoxBooks</title>
+    <link rel="stylesheet" href="assets/style.css">
+  </head>
+  <body>
+    <div class="header">
+      <div class="banner" onclick="window.location = 'index.html'">
+        <img class="header-icon" src="assets/images/marist-icon.png" width="50px" height="50px">
+        <h1>FoxBooks</h1>
+      </div>
+      
+      <input id="search-box" type="text" placeholder="Search...">
+      
+      <div class="header-links">
+        <a href="index.html" class="header-link">Home</a>
+        &nbsp; &nbsp;
+        <a href="courses.html" class="header-link">Courses</a>
+        &nbsp; &nbsp;
+        <a href="#" class="header-link">My Account</a>
+        &nbsp; &nbsp;
+        <a href="#" class="header-link">Contact Us</a>
+      </div>
+    </div>
+    <hr>
+    <div id="content">
+      <nav class="crumbs">
+        <ol>
+            <li class="crumb"><a href="index.html">Home</a></li>
+            <li class="crumb">Courses</li>
+        </ol>
+      </nav>
+
+      <h2><span>Here are the courses we have books available for:</span></h2>
+      <span id="courses"></span>
+
+      <script type = "module">
+        let htmlString = "";
+        
+        const response = await fetch("https://raw.githubusercontent.com/kylecourounis/SD330/main/foxbooks/courses.json");
+        const data = await response.json();
+
+        console.log(data);
+
+        var keys = Object.keys(data["courses"]);
+        
+        for (let i = 0; i < keys.length; i++) {
+          console.log(keys[i]);
+          let course = data["courses"][keys[i]];
+
+          htmlString += "<p><span><a href='books.html?course=" + course["id"] + "'> Course " + (i + 1) + ": " + course["id"] + ", " + course["title"] + ", "+ course["semester"] + ", " + course["professor"] + "</a></span>";
+          htmlString += "<br>";
+          htmlString += "<br>";
+        }
+
+        document.getElementById("courses").innerHTML += htmlString;
+      </script>
+    </div>
+    <hr>
+    <footer>
+      <small>&copy; Kyle Courounis 5/8/2023</small>
+    </footer> 
+  </body>
+</html>
