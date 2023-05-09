@@ -12,8 +12,6 @@
         <h1>FoxBooks</h1>
       </div>
       
-      <input id="search-box" type="text" placeholder="Search...">
-      
       <div class="header-links">
         <a href="index.html" class="header-link">Home</a>
         &nbsp; &nbsp;
@@ -23,6 +21,8 @@
         &nbsp; &nbsp;
         <a href="#" class="header-link">Contact Us</a>
       </div>
+
+      <input id="search-box" type="text" placeholder="Search...">
     </div>
     <hr>
     <div id="content">
@@ -35,7 +35,6 @@
       </nav>
 
       <h2>Here are the books for <span id="courseId"></span></h2>
-      <br>
       <span id="books"></span>
       
       <script type = "module">
@@ -55,8 +54,9 @@
         for (let i = 0; i < books.length; i++) {
           let book = books[i];
       
-          htmlString += "<p><span> " + book["isbn"] + ", " + book["title"] + ", "+ book["author"];
-          htmlString += "<br>";
+          htmlString += "<p><span><strong>ISBN:</strong> " + book["isbn"];
+          htmlString += "<br><strong>Title:</strong> " + book["title"];
+          htmlString += "<br><strong>Author:</strong> " + book["author"];
           htmlString += "<br>";
         }
       

@@ -13,8 +13,6 @@
         <h1>FoxBooks</h1>
       </div>
       
-      <input id="search-box" type="text" placeholder="Search...">
-      
       <div class="header-links">
         <a href="index.html" class="header-link">Home</a>
         &nbsp; &nbsp;
@@ -24,6 +22,8 @@
         &nbsp; &nbsp;
         <a href="#" class="header-link">Contact Us</a>
       </div>
+
+      <input id="search-box" type="text" placeholder="Search...">
     </div>
     <hr>
     <div id="content">
@@ -35,7 +35,7 @@
       </nav>
 
       <h2><span>Here are the courses we have books available for:</span></h2>
-      <span id="courses"></span>
+      <ol id="courses"></ol>
 
       <script type = "module">
         let htmlString = "";
@@ -51,9 +51,7 @@
           console.log(keys[i]);
           let course = data["courses"][keys[i]];
 
-          htmlString += "<p><span><a href='books.html?course=" + course["id"] + "'> Course " + (i + 1) + ": " + course["id"] + ", " + course["title"] + ", "+ course["semester"] + ", " + course["professor"] + "</a></span>";
-          htmlString += "<br>";
-          htmlString += "<br>";
+          htmlString += "<li><a href='books.html?course=" + course["id"] + "'>" + course["id"] + " - " + course["title"] + ", "+ course["semester"] + ", " + course["professor"] + "</a></li>";
         }
 
         document.getElementById("courses").innerHTML += htmlString;
